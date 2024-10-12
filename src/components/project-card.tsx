@@ -13,6 +13,7 @@ import Markdown from "react-markdown";
 
 interface Props {
   title: string;
+  type: "website" | "webApp" | "mobile" | "SaaS";
   href?: string;
   description: string;
   dates: string;
@@ -30,6 +31,7 @@ interface Props {
 
 export function ProjectCard({
   title,
+  type,
   href,
   description,
   dates,
@@ -40,6 +42,13 @@ export function ProjectCard({
   links,
   className,
 }: Readonly<Props>) {
+  const typeVariant = {
+    webApp: "dark:bg-pink-900 dark:text-white bg-pink-100 text-pink-600",
+    mobile: "dark:bg-orange-900 dark:text-white bg-orange-100 text-orange-600",
+    website: "dark:bg-sky-900 dark:text-white bg-sky-100 text-sky-600",
+    SaaS: "dark:bg-teal-900 dark:text-white bg-teal-100 text-teal-600",
+  }[type];
+
   return (
     <Card
       className={
@@ -47,6 +56,7 @@ export function ProjectCard({
       }
     >
       <Link
+        target="_blank"
         href={href || "#"}
         className={cn("block cursor-pointer", className)}
       >
@@ -71,9 +81,20 @@ export function ProjectCard({
         )}
       </Link>
       <CardHeader className="px-2">
-        <div className="space-y-1">
-          <CardTitle className="mt-1 text-base">{title}</CardTitle>
-          <time className="font-sans text-xs">{dates}</time>
+        <div className="space-y-1 mt-2">
+          <CardTitle className="mt-1 text-base flex">
+            {title}
+            <Badge
+              variant="secondary"
+              className={cn(
+                "ml-2 px-1 py-0 text-[10px] capitalize min-w-11 flex items-center justify-center",
+                typeVariant,
+              )}
+            >
+              {type}
+            </Badge>
+          </CardTitle>
+          <time className="font-sans text-xs capitalize">{dates}</time>
           <div className="hidden font-sans text-xs underline print:visible">
             {link?.replace("https://", "").replace("www.", "").replace("/", "")}
           </div>

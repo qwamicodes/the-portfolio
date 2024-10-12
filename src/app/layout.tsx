@@ -61,7 +61,7 @@ export default function RootLayout({
           fontSans.variable,
         )}
       >
-        <ThemeProvider attribute="class" defaultTheme="light">
+        <ThemeProvider enableSystem attribute="class">
           <TooltipProvider delayDuration={0}>
             {children}
             <Navbar />

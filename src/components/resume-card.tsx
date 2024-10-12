@@ -17,7 +17,7 @@ interface ResumeCardProps {
   href?: string;
   badges?: readonly string[];
   period: string;
-  description?: string;
+  description?: string[];
 }
 export const ResumeCard = ({
   logoUrl,
@@ -40,6 +40,7 @@ export const ResumeCard = ({
 
   return (
     <Link
+      target="_blank"
       href={href || "#"}
       className="block cursor-pointer"
       onClick={handleClick}
@@ -80,7 +81,7 @@ export const ResumeCard = ({
                   )}
                 />
               </h3>
-              <div className="text-xs sm:text-sm tabular-nums text-muted-foreground text-right">
+              <div className="text-xs sm:text-sm tabular-nums text-muted-foreground text-right capitalize">
                 {period}
               </div>
             </div>
@@ -100,7 +101,7 @@ export const ResumeCard = ({
               }}
               className="mt-2 text-xs sm:text-sm"
             >
-              {description}
+              {description.join(". ")}
             </motion.div>
           )}
         </div>
