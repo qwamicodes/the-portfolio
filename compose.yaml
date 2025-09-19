@@ -8,7 +8,7 @@ services:
     restart: unless-stopped
     init: true
     ports:
-      - "3388:3000" # Expose Next.js default port
+      - "3388:3388" # Expose Next.js default port
     # env_file: ./.env  # Uncomment if .env file exists
     # No external dependencies detected in README or source
     # No volumes needed for persistence

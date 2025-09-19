@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --port 3388",
     "build": "next build",
-    "start": "next start",
+    "start": "next start --port 3388",
     "format": "prettier --write .",
     "lint": "next lint", 
     "test-ts": "tsc -b",
