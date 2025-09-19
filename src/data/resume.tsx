@@ -11,7 +11,7 @@ export const DATA: IData = {
   locationLink: "https://google.com/maps/place/sanfrancisco",
   description: "Software Engineer",
   summary:
-    "Having `passionate` towards something is very rare! I started coding and researching on building web applications during [high school](#education) about 6 years ago so you and I can agree that I have been around for sometime 😅 and it has never been the same because I love what I do. I love using my *powers* to create *solutions* that can `scale` and are `efficient`. Recently started exploring the *entrepreneurship industry* and have started working on a SaaS product with my close friends [Eben](https://ebenfrimpong.com) and **George** called [the-purple-box](https://thepurplebox.io). Always learning new technologies and I have recently started picking up [Rust](https://rust-lang.com) for backend and system applications.",
+    "Having `passion` towards something that allows you to be a creator of things is very rare! and that superpower my friend is `software engineering`. It's been a very long journey from [high school](#education), so you and I can agree that I have been around for sometime 😅 and it has never been the same because I love what I do. I love using my *powers* to create *solutions* that can `scale` and are `efficient`. Recently started exploring the *entrepreneurship industry* and have started working on a some SaaS products, one with my close techies [Eben](https://ebenfrimpong.com) and **George** called [the-purple-box](https://thepurplebox.io) and the other [parnion](https://parnion.com), and education system for clarity of answers. I like to also pick up and learn new technologies and I have recently started picking up [Rust](https://rust-lang.com) for backend and distributed system applications. Been combining that with a bit of high level system designing",
   avatarUrl: "/me.jpeg",
   skills: [
     "React",
@@ -29,7 +29,7 @@ export const DATA: IData = {
     { href: "/blog", icon: NotebookIcon, label: "Blog" },
   ],
   contact: {
-    email: "qwamicodes@gmail.com",
+    email: "hello@kwaame.build",
     tel: "+233544683405",
     social: {
       GitHub: {
@@ -69,7 +69,7 @@ export const DATA: IData = {
       },
       email: {
         name: "Send Email",
-        url: "mailto:qwamicodes@gmail.com",
+        url: "mailto:hello@kwaame.build",
         icon: Icons.email,
 
         navbar: true,
@@ -148,6 +148,36 @@ export const DATA: IData = {
   ],
   projects: [
     {
+      title: "Parnion",
+      type: "webApp",
+      href: "https://parnion.com",
+      dates: "Aug 2025 - present",
+      active: true,
+      maintainer: true,
+      description:
+        "Parnion is a hub that turns questions into clarity, clarity into confidence, and confidence into a path forward—beginning with education and extending into every part of life where information matters—by connecting students, schools, and communities with the answers that truly make a difference.",
+      technologies: [
+        "React",
+        "Next.js",
+        "Shadcn UI",
+        "Zod",
+        "Tanstack",
+        "Redux",
+        "Typescript",
+        "Monorepo",
+        "Livestore"
+      ],
+      links: [
+        {
+          type: "Website",
+          href: "https://parnion.com",
+          icon: <Icons.globe className="size-3" />,
+        },
+      ],
+      image: "/parnion.png",
+      video: "",
+    },
+    {
       title: "The Purple Box",
       type: "SaaS",
       href: "https://thepurplebox.io",
@@ -223,11 +253,11 @@ export const DATA: IData = {
         "Figma",
       ],
       links: [
-        {
-          type: "Website",
-          href: "https://finger-licking.com",
-          icon: <Icons.globe className="size-3" />,
-        },
+        // {
+        //   type: "Website",
+        //   href: "https://finger-licking.com",
+        //   icon: <Icons.globe className="size-3" />,
+        // },
       ],
       image: "/finger-licking.png",
       video: "",

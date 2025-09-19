@@ -1,47 +1,25 @@
-<div align="center">
-<img alt="Portfolio" src="https://github.com/dillionverma/portfolio/assets/16860528/57ffca81-3f0a-4425-b31d-094f61725455" width="90%">
-</div>
+# Running with Docker
 
-# Portfolio [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fdillionverma%2Fportfolio)
+You can run this project using Docker for a consistent, containerized environment. The provided Docker setup uses Node.js `22.14.0` and pnpm `10.4.1` as specified in the Dockerfile.
 
-Built with next.js, [shadcn/ui](https://ui.shadcn.com/), and [magic ui](https://magicui.design/), deployed on Vercel.
+## Build and Start with Docker Compose
 
-# Features
-
-- Setup only takes a few minutes by editing the [single config file](./src/data/resume.tsx)
-- Built using Next.js 14, React, Typescript, Shadcn/UI, TailwindCSS, Framer Motion, Magic UI
-- Includes a blog
-- Responsive for different devices
-- Optimized for Next.js and Vercel
-
-# Getting Started Locally
-
-1. Clone this repository to your local machine:
+1. Build and start the app using Docker Compose:
 
    ```bash
-   git clone https://github.com/dillionverma/portfolio
+   docker compose up --build
    ```
 
-2. Move to the cloned directory
+2. The app will be available at [http://localhost:3000](http://localhost:3000).
 
-   ```bash
-   cd portfolio
-   ```
+## Project-specific Docker Details
 
-3. Install dependencies:
+- **Node.js version:** 22.14.0
+- **pnpm version:** 10.4.1
+- **Exposed port:** `3000` (Next.js default)
+- **No external dependencies or persistent volumes required**
+- **No environment variables required by default**
+  - If you add a `.env` file, uncomment the `env_file` line in `docker-compose.yml`.
+- **Runs as a non-root user for security**
 
-   ```bash
-   pnpm install
-   ```
-
-4. Start the local Server:
-
-   ```bash
-   pnpm dev
-   ```
-
-5. Open the [Config file](./src/data/resume.tsx) and make changes
-
-# License
-
-Licensed under the [MIT license](https://github.com/dillionverma/portfolio/blob/main/LICENSE.md).
+No additional configuration is needed for a basic setup. If you add services (like a database), update `docker-compose.yml` accordingly.

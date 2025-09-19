@@ -1,0 +1,19 @@
+services:
+  the-portfolio:
+    # Main Next.js app service
+    build:
+      context: ./
+    # image: typescript-app:latest
+    container_name: the-portfolio
+    restart: unless-stopped
+    init: true
+    ports:
+      - "3388:3000" # Expose Next.js default port
+    # env_file: ./.env  # Uncomment if .env file exists
+    # No external dependencies detected in README or source
+    # No volumes needed for persistence
+    # No additional networks required for a single service
+    # If you add a database or other service, add depends_on and networks here
+
+# No volumes section needed (no persistent data required)
+# No networks section needed (single service, default network is sufficient)
