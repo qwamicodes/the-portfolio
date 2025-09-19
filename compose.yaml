@@ -1,9 +1,9 @@
 services:
   the-portfolio:
     # Main Next.js app service
-    build:
-      context: ./
-    # image: typescript-app:latest
+    #build:
+    #  context: ./
+    image: ghcr.io/qwamicodes/the-portfolio:latest
     container_name: the-portfolio
     restart: unless-stopped
     init: true
