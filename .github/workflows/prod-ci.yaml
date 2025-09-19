@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: [main]
 
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
 jobs:
   lint:
     runs-on: ubuntu-latest
@@ -16,7 +20,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '22.14.0'
+          node-version: "22.14.0"
 
       - name: Install pnpm
         run: npm install -g pnpm@10.4.1
@@ -37,7 +41,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '22.14.0'
+          node-version: "22.14.0"
 
       - name: Install pnpm
         run: npm install -g pnpm@10.4.1
@@ -54,9 +58,7 @@ jobs:
           name: package-json
           path: ./package.json
 
-
   build_and_push_image:
-    name: Build and Push Docker Image
     runs-on: ubuntu-latest
     needs: build
     permissions:
@@ -76,7 +78,7 @@ jobs:
       - name: Log in to the Container registry
         uses: docker/login-action@v3
         with:
-          registry: ${{ env.REGISTRY }}
+          registry: ${{ env.REGISTRY }} # This should be ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
@@ -84,10 +86,10 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }} # e.g., ghcr.io/your-username/your-repo
           tags: |
-            type=semver,pattern={{version}},value=${{ needs.determine_version.outputs.new_tag }}
-            type=raw,value=latest
+            type=sha,prefix=
+            type=raw,value=latest,enable={{is_default_branch}}
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
