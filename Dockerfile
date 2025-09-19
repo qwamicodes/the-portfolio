@@ -64,6 +64,6 @@ ENV COREPACK_HOME=/home/appuser/.cache/node/corepack
 
 USER appuser
 
-EXPOSE 3000
+EXPOSE 3388
 
-CMD ["node", "./node_modules/next/dist/bin/next", "start"]
+CMD ["node", "./node_modules/next/dist/bin/next", "start", "--port", "3388"]
